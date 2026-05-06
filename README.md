@@ -3,6 +3,7 @@
 ### Function: pulls data from EIA API for Crude Oil Production for 2024(can be changed). Cleans the data to only contain the necessary columns, updates datatypes and uploads it to S3 as a parquet file with a partitioned structure that can be queried by Athena without extra work 
 
 ### Structure: 
+```
 ┌─────────────┐    ┌──────────────┐    ┌─────────────────┐    ┌──────────────┐
 │  EIA API v2 │───▶│   Extract    │───▶│  Transform/Load │───▶│  S3 (Parquet)│
 │  (REST/JSON)│    │  (requests)  │    │ (pandas/pyarrow)│    │  partitioned │
@@ -13,6 +14,7 @@
                                        │  Metadata DB │
                                        │   (SQLite)   │
                                        └──────────────┘
+```
 ### Stack: Python(dependencies:pandas, pyarrow, boto3, requests, python-dotenv, sqlite3), S3, SQLite
 
 ### File function: 
