@@ -25,4 +25,4 @@ for i in range(1,13):
     s3_path=save_parquet(df,"TX","2024",str(i).zfill(2))
 
     
-    log_run(rows_fetched,rows_written,s3_path,1,end-start,"None")
+    log_run(rows_fetched,rows_written,month,2024,s3_path,1,end-start,"None")
