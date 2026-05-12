@@ -13,6 +13,8 @@ def fetch_data(state, start_month, end_month):
     response = requests.get(url)
     response.raise_for_status()
     return response.json()
-
-
-#print(fetch_data("TX","2026-01","2026-01"))
+""""
+data = fetch_data("TX","2026-01","2026-01")
+print(data)
+print(len(data["response"]["data"]))
+"""
