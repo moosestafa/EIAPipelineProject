@@ -1,10 +1,12 @@
 import sqlite3 as sqlite
 import uuid 
 from datetime import datetime
+import os
 
 
 
 def init_db():
+    os.makedirs('db', exist_ok=True)
     conn = sqlite.connect('db/pipeline_metadata.db')
     cursor = conn.cursor()
     cursor.execute("""CREATE TABLE IF NOT EXISTS metadata(run_id TEXT, 
