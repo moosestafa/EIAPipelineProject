@@ -20,6 +20,7 @@ def transform_data(df):
     df["value"] = df["value"].astype("float64")
     df['year'] = df['period'].dt.year
     df['month'] = df['period'].dt.month
+    df = df.rename(columns={"area-name": "area_name"})
     df = df.reset_index(drop=True)
     return df
 
