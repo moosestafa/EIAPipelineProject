@@ -2,6 +2,8 @@ import sqlite3 as sqlite
 import uuid 
 from datetime import datetime
 import os
+import boto3
+from botocore.exceptions import ClientError
 
 
 
@@ -48,4 +50,24 @@ def increment(state):
     
 
 
+def download_metadata():
+    try:
+        s3 = boto3.client('s3')
+        s3.download_file(Bucket='eia-pipeline-md', 
+                     Key='metadata/pipeline_metadata.db',
+                     Filename='db/pipeline_metadata.db')
+    except ClientError as e:
+        if e.response['Error']['Code'] == '404':
+            pass  # File doesn't exist yet, init_db() will create it
+        else:
+            raise  # Re-raise unexpected errors
+
+
+def upload_metadata():
+    s3 = boto3.client('s3')
+    s3.upload_file(
+    Filename='db/pipeline_metadata.db',   # Path to your local file
+    Bucket='eia-pipeline-md',   # Name of the target S3 bucket
+    Key='metadata/pipeline_metadata.db'        # Name of the object in S3
+    )
 

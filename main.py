@@ -1,9 +1,10 @@
 from pipeline.eia_client import fetch_data
 from pipeline.transform import create_dataframe, clean_data, transform_data
 from pipeline.loader import save_parquet
-from pipeline.metadata import init_db,log_run,increment,backfill
+from pipeline.metadata import init_db,log_run,increment,backfill,download_metadata,upload_metadata
 import time 
 #initializes metadata database 
+download_metadata()
 init_db()
 #makes api request for each month of the year and calls functions to create dataframe, clean and transform data, create parquet file and upload to S3 
 states = [
@@ -41,4 +42,5 @@ for state in states:
         year = year_month[0]
         month = str(year_month[1]).zfill(2)
         rawdata = fetch_data(state,f"{year}-{month}",f"{year}-{month}")
+upload_metadata()
 

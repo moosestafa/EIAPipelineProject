@@ -3,6 +3,7 @@ import os
 from dotenv import load_dotenv
 from requests.exceptions import HTTPError
 
+
 load_dotenv()
 #fetches api key
 eia_key = os.getenv("EIA_API_KEY")
