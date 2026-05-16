@@ -51,8 +51,9 @@ def increment(state):
 
 
 def download_metadata():
+    os.makedirs('db', exist_ok=True)
+    s3 = boto3.client('s3')
     try:
-        s3 = boto3.client('s3')
         s3.download_file(Bucket='eia-pipeline-md', 
                      Key='metadata/pipeline_metadata.db',
                      Filename='db/pipeline_metadata.db')
