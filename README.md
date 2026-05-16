@@ -29,3 +29,5 @@
 - I decided to log metadata partially in case i want to use it for future triggers for each step, and partially for error logging, so I can find the part of the pipeline with the error and investigate if need be
 
 ### Dashboard Link: https://mdaredia28.grafana.net/public-dashboards/fe7dff75175d462997ba7b045663cf24
+
+![Texas Crude Oil Production](images/)
