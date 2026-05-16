@@ -30,4 +30,6 @@
 
 ### Dashboard Link: https://mdaredia28.grafana.net/public-dashboards/fe7dff75175d462997ba7b045663cf24
 
-![Texas Crude Oil Production](images/)
+![Texas Crude Oil Production](images/Texas.png)
+![California Crude Oil Production](images/California.png)
+![Alaska Crude Oil Production](images/Alaska.png)
